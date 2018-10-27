@@ -19,3 +19,7 @@ docker cp mysql:/var/lib/mysql-files/extract_data.csv extract_data.csv
 # Index extracted data to solr
 docker cp extract_data.csv solr:/extract_data.csv
 docker exec -it solr /bin/bash -c "bin/post -c tag_user_view /extract_data.csv"
+
+echo -e "\nTo see the recommendation, go to:"
+echo -e "\n\thttp://localhost:8983/solr/tag_user_view/mlt?q=ff0d3fb21c00bc33f71187a2beec389e9eff5332"
+echo -e "\n"
