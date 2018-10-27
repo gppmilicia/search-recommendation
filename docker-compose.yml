@@ -16,3 +16,10 @@ services:
     hostname: solr
     ports:
       - "0.0.0.0:8983:8983"
+    volumes:
+      - ./solr_cores/tag_user_view:/opt/solr/server/solr/tag_user_view
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - tag_user_view
+      - /opt/solr/server/solr/tag_user_view

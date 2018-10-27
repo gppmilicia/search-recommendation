@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<schema name="tag_user_view" version="1.6">
+
+  <fieldType name="string"   class="solr.StrField" />
+
+  <fieldType name="text_token" class="solr.TextField">
+    <analyzer>
+      <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+
+  <field name="tag_id"        type="string"       required="true" />
+  <field name="product_name"  type="text_token"   required="true" termVectors="true" />
+  <field name="users"         type="text_token"   required="true" termVectors="true" />
+
+  <uniqueKey>tag_id</uniqueKey>
+
+</schema>
