@@ -9,6 +9,9 @@ services:
       MYSQL_ROOT_PASSWORD: root
     ports:
        - "0.0.0.0:3306:3306"
+    volumes:
+    - ./script:/script
+    - ./signals:/signals
 
   solr:
     image: solr:7.5.0
