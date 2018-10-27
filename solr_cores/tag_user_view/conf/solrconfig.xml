@@ -22,7 +22,7 @@
 
   <requestHandler name="/mlt" class="solr.MoreLikeThisHandler">
     <lst name="invariants">
-      <!--<str name="wt">xslt</str>-->
+      <str name="wt">xslt</str>
       <str name="indent">on</str>
       <str name="tr">mlt.xsl</str>
     </lst>
@@ -31,7 +31,7 @@
       <str name="fl">*,score</str>
       <str name="mlt">true</str>
       <str name="mlt.count">10</str>
-      <str name="mlt.fl">users,product_name</str>
+      <str name="mlt.fl">users</str>
       <str name="mlt.mindf">1</str>
       <str name="mlt.mintf">1</str>
       <str name="mlt.boost">true</str>

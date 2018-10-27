@@ -1,3 +1,5 @@
+SET group_concat_max_len=102400;
+
 SELECT * FROM (SELECT "tag_id", "product_name", "users"
                UNION ALL
                SELECT tag_id, product_name, group_concat(DISTINCT user_id ORDER BY user_id SEPARATOR " ") as users
