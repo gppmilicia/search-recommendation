@@ -68,5 +68,5 @@ topSimilarTags = similarTags.head(10).ix[:10, 2:11]
 print(dt.now().strftime("%Y-%m-%d %H:%M"))
 
 # Save data to csv to use in your own recommendation system
-tmpViewMatrix.to_csv('temp_matrix_result.csv')
-topSimilarTags.to_csv('similar_result.csv')
+tmpViewMatrix.to_csv('./results/temp_matrix_result.csv')
+topSimilarTags.to_csv('./results/similar_result.csv')
