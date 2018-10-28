@@ -18,7 +18,7 @@
 ```
 
 ## Example of usage
- - 1) Go to: [Recommendation-Engine](http://localhost:8983/solr/tag_user_view/mlt?q=ff0d3fb21c00bc33f71187a2beec389e9eff5332")
+ - 1) Go to: [Recommendation-Engine](http://localhost:8983/solr/tag_user_view/mlt?q=ff0d3fb21c00bc33f71187a2beec389e9eff5332)
  - 2) Change de tag_id to see different result
 
 ## Stop recommendation engine
