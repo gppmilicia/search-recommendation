@@ -30,10 +30,18 @@
 # Method 2
 
 ## Start recommendation engine with Python
-##### You need a lot of time to calculate similar tags!!!
 ``` bash
- ./start_demo_using_solr.sh
+ ./start_demo_using_solr.sh tag_id_to_calculate_recommendation
 ```
+
+## Examples of usage
+``` bash
+ ./start_demo_using_solr.sh ff0d3fb21c00bc33f71187a2beec389e9eff5332
+```
+#### Result of python calculation: 
+  - `result/full_matrix_result.csv`
+  - `result/10_similar_result.csv`
+
 
 ## Contributor
  - Giuseppe Milicia 

@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
-import warnings as warn
 import sys
+import warnings as warn
+
 import numpy as np
 import pandas as pd
 from scipy import sparse
@@ -18,7 +19,7 @@ def calculate_cosine_similarity(data_items):
   return sim
 
 
-def similarity_function(signals_csv):
+def similarity_function(signals_csv, tag_to_search):
   print('Read CSV with signals')
   df = pd.read_csv('./signals/' + signals_csv, encoding='latin-1')
   df.head()
@@ -31,7 +32,8 @@ def similarity_function(signals_csv):
   n_users = df.user_id.unique().shape[0]
   n_tags = df.tag_id.unique().shape[0]
   print(
-      'Number of users = ' + str(n_users) + ' | Number of tags = ' + str(n_tags))
+      'Number of users = ' + str(n_users) + ' | Number of tags = ' + str(
+          n_tags))
 
   print('Add column of action with value 1')
   user_tag_view['view'] = '1'
@@ -56,13 +58,13 @@ def similarity_function(signals_csv):
   print('Create temp matrix to store the similarity')
   data_matrix = calculate_cosine_similarity(dataViewPivot)
 
-  print('Top 10 tags with their recommended tags')
-  print(data_matrix.loc['ff0d3fb21c00bc33f71187a2beec389e9eff5332'].nlargest(11))
+  print('\nTop 10 tags with their recommended tags\n')
+  top_10_tag = data_matrix.loc[tag_to_search].nlargest(11)
+  print(top_10_tag)
 
-  print('Save data to csv to use in your own recommendation system')
-  data_matrix.to_csv('./results/temp_matrix_result.csv')
-  data_matrix.loc['ff0d3fb21c00bc33f71187a2beec389e9eff5332'].nlargest(11).to_csv(
-    './results/similar_result.csv')
+  print('\nSave data to csv to use in your own recommendation system')
+  data_matrix.to_csv('./results/full_matrix_result.csv')
+  top_10_tag.to_csv('./results/10_similar_result.csv')
 
 
-similarity_function(sys.argv[1])
+similarity_function(sys.argv[1], sys.argv[2])
