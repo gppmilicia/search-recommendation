@@ -1,10 +1,10 @@
 version: "2.2"
 
 services:
-  mysql:
+  mysql-test-mil:
     image: mysql:5.7
-    container_name: mysql
-    hostname: mysql
+    container_name: mysql-test-mil
+    hostname: mysql-test-mil
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
@@ -13,10 +13,10 @@ services:
     - ./script:/script
     - ./signals:/signals
 
-  solr:
+  solr-test-mil:
     image: solr:7.5.0
-    container_name: solr
-    hostname: solr
+    container_name: solr-test-mil
+    hostname: solr-test-mil
     ports:
       - "0.0.0.0:8983:8983"
     volumes:
